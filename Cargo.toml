@@ -1,0 +1,101 @@
+[workspace]
+members = [
+    "common",
+    "composer",
+    "database",
+    "document",
+    "indexer",
+    "slack",
+    "helpers/cognitoidentityprovider-helper",
+    "helpers/s3-helper",
+    "lambdas/callback-worker",
+    "lambdas/conversation-api",
+    "lambdas/collections-api",
+    "lambdas/documents-api",
+    "lambdas/document-downloader",
+    "lambdas/document-indexer",
+    "lambdas/document-upload-worker",
+    "lambdas/groups-api",
+    "lambdas/users-api",
+    "lambdas/search-api",
+
+
+]
+
+[workspace.package]
+edition = "2021"
+authors = ["Russell Wong"]
+
+[workspace.package.metadata.lambda.deploy]
+lambda-dir = "../target/lambda"
+profile = "app"
+
+[workspace.dependencies]
+common = { path = "./common" }
+composer = { path = "./composer" }
+database = { path = "./database" }
+document = { path = "./document" }
+indexer = { path = "./indexer" }
+slack = { path = "./slack" }
+cognitoidentityprovider-helper = { path = "./helpers/cognitoidentityprovider-helper" }
+s3-helper = { path = "./helpers/s3-helper" }
+
+actix-rt = "2.8.0"
+anyhow = "1.0.71"
+async-openai = "0.20.0"
+aws_lambda_events = { version = "0.15.0", default-features = false, features = [
+    "s3",
+    "dynamodb",
+] }
+aws-config = "1.1.10"
+aws-smithy-types = "1.1.8"
+aws-sdk-cognitoidentityprovider = "1.22.0"
+aws-sdk-cognitoidentity = "1.19.0"
+aws-sdk-dynamodb = "1.21.0"
+aws-sdk-lambda = "1.20.0"
+aws-sdk-s3 = "1.22.0"
+base64ct = { version = "1.6.0", features = ["std"] }
+chrono = "0.4.26"
+docx-rs = "0.4.6"
+derive_builder = "0.20.0"
+derive-getters = "0.3.0"
+hex = "0.4.3"
+http = "1.1.0"
+jwt = "0.16.0"
+lambda_http = "0.11.1"
+lambda_runtime = "0.11.1"
+native-tls = { version = "0.2.11", features = ["vendored"] }
+ndarray = "0.15.6"
+passwords = "3.1.12"
+pdfium-render = "0.8.3"
+rayon = "1.7.0"
+regex = "1.8.1"
+reqwest = { version = "0.12.3", default-features = false, features = [
+    "json",
+    "rustls-tls",
+] }
+route-recognizer = "0.3.1"
+serde = { version = "1", features = ["serde_derive"] }
+serde_dynamo = { version = "4", features = [
+    "aws-sdk-dynamodb+1",
+    "aws_lambda_events+0_7",
+] }
+serde_json = "1.0"
+sha2 = "0.10.7"
+slack-morphism = { version = "2.1", features = ["hyper"] }
+thiserror = "1.0"
+tiktoken-rs = "0.5.8"
+tokenizers = { version = "0.15.2", default-features = false, features = [
+    "onig",
+] }
+tokio = { version = "1", features = ["macros"] }
+tracing = { version = "0.1", features = ["log"] }
+tracing-subscriber = { version = "0.3", default-features = false, features = [
+    "fmt",
+] }
+tract = "0.21.3"
+tract-onnx = "0.21.3"
+typed-builder = "0.18.1"
+url = "2.4.0"
+urlencoding = "2.1.2"
+uuid = { version = "1.3.4", features = ["v5", "serde", "v4"] }

@@ -1,0 +1,15 @@
+[package]
+name = "cognitoidentityprovider-helper"
+version = "0.1.0"
+authors.workspace = true
+edition.workspace = true
+
+[dependencies]
+# Local
+common.workspace = true
+
+anyhow.workspace = true
+aws-sdk-cognitoidentityprovider.workspace = true
+passwords.workspace = true
+serde_json.workspace = true
+tracing.workspace = true

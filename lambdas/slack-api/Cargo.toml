@@ -1,0 +1,24 @@
+[package]
+name = "slack-api"
+version = "0.1.0"
+edition.workspace = true
+authors.workspace = true
+
+[dependencies]
+# Local
+common.workspace = true
+database.workspace = true
+slack.workspace = true
+
+anyhow.workspace = true
+aws-config.workspace = true
+aws-sdk-dynamodb.workspace = true
+lambda_http.workspace = true
+lambda_runtime.workspace = true
+route-recognizer.workspace = true
+serde_json.workspace = true
+serde.workspace = true
+slack-morphism.workspace = true
+tokio.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true

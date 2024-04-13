@@ -1,0 +1,43 @@
+{
+	"name": "app-dev",
+	"image": "mcr.microsoft.com/devcontainers/rust:1-1-bullseye",
+	"mounts": [
+		{
+			"source": "devcontainer-cargo-cache-${devcontainerId}",
+			"target": "/usr/local/cargo",
+			"type": "volume"
+		}
+	],
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"rust-lang.rust-analyzer",
+				"tamasfe.even-better-toml", // Work Cargo.toml
+				"eamodio.gitlens", // Provide Git information in IDE
+				"davidanson.vscode-markdownlint", // Markdown file lingting
+				"ms-azuretools.vscode-docker", // Docker integration and linting
+				"shardulm94.trailing-spaces", // Show trailing spaces
+				"Gruntfuggly.todo-tree", // Highlights TODO comments
+				"bierner.emojisense", // Emoji sense for markdown
+				"stkb.rewrap", // Wrap long comments after n characters on one line
+				"vscode-icons-team.vscode-icons", // Better file extension icons
+				"github.vscode-pull-request-github", // Github interaction
+				"IBM.output-colorizer" // Colorise output/test logs
+				// "github.copilot" // Enable AI code completion
+			],
+			"settings": {
+				"files.eol": "\n",
+				"editor.formatOnSave": true,
+				"editor.codeActionsOnSaveTimeout": 3000,
+				"[rust]": {
+					"editor.defaultFormatter": "rust-lang.rust-analyzer"
+				},
+				"rust-analyzer.serverPath": "/usr/local/cargo/bin/rust-analyzer",
+				"remote.extensionKind": {
+					"ms-azuretools.vscode-docker": "workspace"
+				}
+			}
+		}
+	},
+	"postCreateCommand": "rustup component add rust-analyzer"
+}

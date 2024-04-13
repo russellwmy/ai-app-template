@@ -1,0 +1,1 @@
+pub const REFERENCE_CHAR_WIDTH: f32 = 12.0;

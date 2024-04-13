@@ -1,0 +1,14 @@
+[package]
+name = "common"
+version = "0.1.0"
+authors.workspace = true
+edition.workspace = true
+
+[dependencies]
+anyhow.workspace = true
+base64ct.workspace = true
+jwt.workspace = true
+serde.workspace = true
+sha2.workspace = true
+uuid.workspace = true
+url.workspace = true

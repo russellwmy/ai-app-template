@@ -1,0 +1,32 @@
+mod extractor;
+
+mod alignment;
+mod analyser;
+mod constants;
+mod element;
+mod font_weight;
+mod grouper;
+mod helper;
+mod page;
+mod parser;
+mod point;
+mod rect;
+mod text_element;
+mod text_element_group;
+mod text_element_group_kind;
+mod text_kind;
+mod text_line;
+
+pub use alignment::Aligment;
+pub use analyser::Analyser;
+pub use element::Element;
+pub use font_weight::FontWeight;
+pub use page::Page;
+pub use parser::PdfDocumentParser;
+pub use point::Point;
+pub use rect::Rect;
+pub use text_element::TextElement;
+pub use text_element_group::TextElementGroup;
+pub use text_element_group_kind::TextElementGroupKind;
+pub use text_kind::TextKind;
+pub use text_line::TextLine;
