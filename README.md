@@ -31,6 +31,27 @@ A template project to run ingestion and querying with AWS services.
 - [resources](./resources): PDFium resource which need to mount in AWS Index lambda to parse PDF
 - [slack](./slack): Slack module to handle slack integration
 
+## How it works
+
+### Ingestion
+
+- When an user uploads document to the system, system saves the document in S3
+- A indexing task is created
+- Document analyser analyzes the document layout and build a document graph
+- A document vector graph is created respect to the document graph with embedding model and store in S3
+- A overlapped chunking method is applied to reduce chance for incomplete context
+- User can associate the document to a collection for multiple documents querying
+
+### Querying
+
+- When received an user query
+- Query is embedded  with embedding model
+- System scans all documents in the target collection and filter with cosine similarity
+- System picks top K document graph nodes
+- System constructs the GPT prompt with selected nodes as context
+- System send the enriched query to external GPT service
+- When system got response from external GPT service,  a callback request will be triggered
+
 ## Setup
 
 - Setup DynamoDB with stream filter which can in found in readme file.
